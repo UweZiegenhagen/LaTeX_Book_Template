@@ -1,0 +1,140 @@
+%!TEX TS-program = Arara
+% arara: pdflatex
+\documentclass[11pt,english,a5paper]{scrbook}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{booktabs}
+\usepackage{babel}
+\usepackage{graphicx}
+\usepackage{csquotes}
+\usepackage{paralist}
+\usepackage{xcolor}
+
+%\usepackage{kurier}
+\usepackage{mathpazo, palatino}
+\usepackage{microtype}
+
+\usepackage{blindtext}
+
+
+\usepackage{listings}
+\usepackage{url}
+%\usepackage{sourcesanspro}
+%\usepackage{sourcecodepro}
+ 
+\definecolor{colBack}{rgb}{1,1,0.8}
+\definecolor{colKeys}{rgb}{0,0,1}
+\definecolor{colIdentifier}{rgb}{0,0,0}
+\definecolor{colComments}{rgb}{1,0,0}
+\definecolor{colString}{rgb}{0,0.5,0}
+ 
+\lstset{%
+    float=hbp,%
+    basicstyle=\ttfamily\footnotesize, %
+    identifierstyle=\color{colIdentifier}, %
+    keywordstyle=\color{colKeys}, %
+    stringstyle=\color{colString}, %
+    commentstyle=\color{colComments}, %
+    columns=flexible, %
+    tabsize=2, %
+    language=Python,%
+    frame=single, %
+    extendedchars=true, %
+    showspaces=false, %
+    showstringspaces=false, %
+    numbers=left, %
+    numberstyle=\tiny, %
+    breaklines=true, %
+    backgroundcolor=\color{colBack}, %
+    breakautoindent=true, %
+    captionpos=b%
+}
+
+\lstset{literate=%
+    {Ö}{{\"O}}1
+    {Ä}{{\"A}}1
+    {Ü}{{\"U}}1
+    {ß}{{\ss}}1
+    {ü}{{\"u}}1
+    {ä}{{\"a}}1
+    {ö}{{\"o}}1
+    {~}{{\textasciitilde}}1
+}
+
+
+\usepackage[headsepline=0.5pt,footsepline=0.0pt]{scrlayer-scrpage}
+%\usepackage[left=2cm,right=4cm]{geometry}
+\KOMAoptions{headwidth=1.1\textwidth,footwidth=1.1\textwidth}
+\usepackage{blindtext}
+ 
+\pagestyle{scrheadings}
+ 
+\ohead{\headmark}
+\ofoot[\pagemark]{\pagemark}
+ 
+\ifoot{ifoot} % inner foot
+\ihead{ihead} % inner head
+\cfoot{cfoot} % center foot
+\chead{chead} % center head
+
+\title{The title of the book}
+\author{The author}
+
+\usepackage{hyperref}
+\hypersetup{
+    bookmarks=true,                     % show bookmarks bar
+    unicode=false,                      % non - Latin characters in Acrobat’s bookmarks
+    pdftoolbar=true,                        % show Acrobat’s toolbar
+    pdfmenubar=true,                        % show Acrobat’s menu
+    pdffitwindow=false,                 % window fit to page when opened
+    pdfstartview={FitH},                    % fits the width of the page to the window
+    pdftitle={My title},                        % title
+    pdfauthor={Author},                 % author
+    pdfsubject={Subject},                   % subject of the document
+    pdfcreator={Creator},                   % creator of the document
+    pdfproducer={Producer},             % producer of the document
+    pdfkeywords={keyword1, key2, key3},   % list of keywords
+    pdfnewwindow=true,                  % links in new window
+    colorlinks=true,                        % false: boxed links; true: colored links
+    linkcolor=blue,                          % color of internal links
+    filecolor=cyan,                     % color of file links
+    citecolor=green,                     % color of file links
+    urlcolor=magenta                        % color of external links
+}
+
+\begin{document}
+
+\maketitle
+
+\frontmatter
+
+\tableofcontents
+
+\listoffigures
+
+\listoftables
+
+\mainmatter
+
+\chapter{Introduction}
+
+\blindtext
+
+\[
+a^2+b^2=c^2
+\]
+
+\blindtext
+
+\blindtext
+
+\blindtext
+
+\blindtext
+
+\backmatter
+
+
+
+\end{document}
