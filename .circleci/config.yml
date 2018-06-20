@@ -1,0 +1,12 @@
+version: 2
+jobs:
+   build:
+     docker:
+       - image: danteev/texlive:TL2017
+     steps:
+       - checkout
+       - run: latexmk MainDocument.tex
+       # collect and publish final file
+       - run: mkdir result && mv MainDocument.pdf result/
+       - store_artifacts:
+           path: result
