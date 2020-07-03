@@ -1,5 +1,8 @@
 %!TEX TS-program = Arara
-% arara: pdflatex
+% arara: pdflatex: { synctex: on }
+% arara: makeglossaries  
+% arara: pdflatex: { synctex: on }
+% arara: pdflatex: { synctex: on }
 \documentclass[11pt,english,a5paper]{scrbook}
 
 \usepackage[utf8]{inputenc}
@@ -12,7 +15,8 @@
 \usepackage{xcolor}
 
 %\usepackage{kurier}
-\usepackage{mathpazo, palatino}
+\usepackage[]{lmodern}
+%\usepackage{mathpazo, palatino}
 \usepackage{microtype}
 
 \usepackage{blindtext}
@@ -64,7 +68,6 @@
 
 
 \usepackage[headsepline=0.5pt,footsepline=0.0pt]{scrlayer-scrpage}
-%\usepackage[left=2cm,right=4cm]{geometry}
 \KOMAoptions{headwidth=1.1\textwidth,footwidth=1.1\textwidth}
 \usepackage{blindtext}
  
@@ -103,6 +106,28 @@
     urlcolor=magenta                        % color of external links
 }
 
+\usepackage[acronym]{glossaries}
+
+\makeglossaries
+
+\newglossaryentry{latex}
+{
+	name=latex,
+	description={A wonderful tool to typeset texts}
+}
+
+\newglossaryentry{maths}
+{
+	name=mathematics,
+	description={Mathematics is a core science}
+}
+
+
+\newacronym{pc}{PC}{Personal Computer}
+
+\newacronym{gnu}{GNU}{GNU is not Unix}
+
+
 \begin{document}
 
 \maketitle
@@ -125,6 +150,17 @@
 a^2+b^2=c^2
 \]
 
+
+\begin{lstlisting}[language={Python}, label={lis:py1}, caption={Some Python Code}]
+def create_bruch():
+zahlen = list(range(1,13))
+zaehler = random.choice(zahlen)
+zahlen.remove(zaehler)
+nenner = random.choice(zahlen)
+return 1234
+\end{lstlisting}
+
+
 \blindtext
 
 \blindtext
@@ -135,6 +171,15 @@ a^2+b^2=c^2
 
 \backmatter
 
+The \Gls{latex} typesetting markup language is specially suitable 
+for documents that include \gls{maths}. 
+
+IBM invented the \acrlong{pc}, which is abbreviated \acrshort{pc}. One important keyword is \acrfull{gnu}.
+
+
+\printglossary[type=\acronymtype]
+
+\printglossaries
 
 
 \end{document}
