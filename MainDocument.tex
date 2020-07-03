@@ -1,6 +1,7 @@
-%!TEX TS-program = Arara
+% !TEX TS-program = Arara
 % arara: pdflatex: { synctex: on }
-% arara: makeglossaries  
+% arara: makeglossaries 
+% arara: makeindex
 % arara: pdflatex: { synctex: on }
 % arara: pdflatex: { synctex: on }
 \documentclass[11pt,english,a5paper]{scrbook}
@@ -13,6 +14,9 @@
 \usepackage{csquotes}
 \usepackage{paralist}
 \usepackage{xcolor}
+
+\usepackage[]{makeidx}
+\makeindex
 
 %\usepackage{kurier}
 \usepackage[]{lmodern}
@@ -160,6 +164,7 @@ nenner = random.choice(zahlen)
 return 1234
 \end{lstlisting}
 
+\index{Mustermann}
 
 \blindtext
 
@@ -181,5 +186,6 @@ IBM invented the \acrlong{pc}, which is abbreviated \acrshort{pc}. One important
 
 \printglossaries
 
+\printindex
 
 \end{document}
